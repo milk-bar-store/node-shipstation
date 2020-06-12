@@ -1,11 +1,12 @@
-module.exports = function(apiKey, apiSecret, to, per){
+module.exports = function(apiKey, apiSecret, partnerKey, to, per){
 	var limiter = require("simple-rate-limiter"),
 		request = require("request"),
 		apiUrl = 'https://ssapi.shipstation.com',
 		baseRequest = limiter(request.defaults({
 			headers: {
 				'Accept': 'application/json',
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				'x-partner': partnerKey
 			},
 			json:true,
 			auth: {
