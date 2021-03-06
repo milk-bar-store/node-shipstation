@@ -203,11 +203,12 @@ module.exports = function(apiKey, apiSecret, partnerKey, to, per){
 
 			return order;
 		},
-
+		assignUser: new postMethod('/orders/assignuser'), // {orderIds, userId}
 		getProducts: '/products',
 		getProduct: '/products/{id}/',
 
 		getShipments: '/shipments',
+		getFulfillments: '/fulfillments',
 		addShippingLabel: '/shipments/createlabel', // http://www.shipstation.com/developer-api/#/reference/shipments/shipmentscreatelabel/post
 		getShippingRates: new postMethod('/shipments/getrates'), // http://www.shipstation.com/developer-api/#/reference/shipments/shipmentsgetrates/post
 		voidShippingLabel: function(id, callback){
